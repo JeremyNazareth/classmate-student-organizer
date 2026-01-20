@@ -7,44 +7,48 @@
     box-sizing: border-box;
 }
 
+html{
+    background-color: rgba(238, 238, 238, 0.795);
+}
 html, body {
-    justify-content: center;
-    color: blueviolet;
+    color: black;
     margin: 0;
     font-family: "Nunito", sans-serif;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
+    min-height: 60vw;
 }
 
 body {
-    display: flex;
     justify-content: center;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background: linear-gradient( white, blueviolet);
+    margin: auto;
+    max-width: 900px;
+    padding: 0px 2rem;
 }
 
-
 .header{
-    background-color: blueviolet;
+    box-shadow: 
+    0px 0px 2px rgb(0, 0, 0, 0.2),
+    0 0px 10px rgba(0, 0, 0, 0.2);
+    color: blueviolet;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
-    padding: 0.5rem 2rem;
+    width: 100%;
+    padding: 0.7rem 2rem;
     margin: 10px auto;
-    border: 3px solid rgb(164, 103, 221);
-    border-radius: 50px;
+    border-radius: 15px;
 }
 
 .header-logo{
     text-decoration: none;
-    color: aliceblue;
     font-size: 25px;
     font-weight: 0;
     margin: 0;
-    color: white;
+    color: blueviolet;
     font-weight: 800;
 }
 
@@ -52,16 +56,31 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
     gap: 18px;
+    
 }
 
 .nav a {
+    all: unset;
     align-items: center;
-    color: aliceblue;
     text-decoration: none;
 }
+
+.primary-container{
+    padding: 0.7rem 2rem;
+    width: fit-content;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: large;
+    color: black;
+    box-shadow: 
+    0px 0px 2px rgb(0, 0, 0, 0.2),
+    0 0px 10px rgba(0, 0, 0, 0.2);
+    
+}
+
 
 .margin-component{
     margin-left: 200px;
@@ -93,23 +112,31 @@ h5 {
 h6 {
     color: black;
     font-size: 15px;
-    
-}
 
-.title{
-    text-align: center;
 }
 
 .btn-primary{
-    background-color: blueviolet;
+    all: unset;
+    box-shadow: 
+    0px 0px 2px rgb(137, 43, 226, 0.8),
+    0 0px 10px rgba(137, 43, 226, 0.2);
+    color: blueviolet;
+    font-weight: 600;
     width: fit-content;
-    padding: 0.3rem 0.5rem;
-    border-radius: 16px;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
     text-decoration: none;
-    color: white;
-    border: 2px solid rgb(177, 135, 216);
+    transition: all 0.1s;
+    cursor: pointer;
 }
 
+.btn-primary:hover{
+    color: white;
+    box-shadow: 
+    0px 0px 2px rgb(137, 43, 226, 0.8),
+    0 0px 7px rgba(137, 43, 226, 1);
+    background-color: blueviolet;
+}
 .dropdown-menu {
     padding: 5px;
     text-align: start;

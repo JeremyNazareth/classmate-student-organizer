@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Pacifico&display=swap');
 
 body {
-    color: blueviolet;
+    
 }
 
 .container {
@@ -17,6 +17,8 @@ body {
     font-size: 5rem;
     font-weight: 800;
     line-height: 6rem;
+    color: blueviolet;
+    text-align: center;
 }
 
 .hero{
