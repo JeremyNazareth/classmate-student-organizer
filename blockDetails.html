@@ -18,20 +18,8 @@
     
 </head>
 <body>
-    <header class="header"> 
-        <a class="logo" href="index.html">ClassMate</a>
-        <nav class="nav">
-            <a href="index.html"> <h4>Inicio</h4></a>
-            <a href="blocks.html"> <h4>Bloques</h4></a>
-            <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" style="justify-content: start; text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6); font-size: 25px; margin-bottom: 6px;">Funciones</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="grades.html"><h3>Calculadora de notas</h3></a></li>
-                    <li><a class="dropdown-item" href="to_do.html"><h3>Actividades</h3></a></li>
-                </ul>
-            
-        </nav>
-    </header>
-
+    <div class="header-container" id="header"></div>
+    
     <div class="selectedBlock-data">
         <div id="nameSelectedBlock"></div>
         <div id="descriptionSelectedBlock"></div>
@@ -202,5 +190,7 @@
         </div>
         
     </div>
+
+    <script src="/includes/loadHeader.js"></script>
 </body>
 </html>

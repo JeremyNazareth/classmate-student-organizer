@@ -11,21 +11,7 @@
     <script src="assets/js/home.js" defer></script>
 </head>
 <body>
-    <header class="header"> 
-        <a class="header-logo" href="index.html">ClassMate</a>
-        <nav class="nav">
-            <a href="index.html"> Inicio </a>
-            <a href="blocks.html"> Bloques </a>
-            
-            <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown"> Funciones </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="display: none;">
-                    <li><a class="dropdown-item" href="grades.html"><h3>Calculadora de notas</h3></a></li>
-                    <li><a class="dropdown-item" href="to_do.html"><h3>Actividades</h3></a></li>
-                </ul>
-            <a href="">Acerca de</a>    
-        </nav>
-    </header>
-
+    <div class="header-container" id="header"></div>
     <section class="hero" style="margin-bottom: 200px;">
         <p class="title">ClassMate</p>
         <p class="subtitle">Tu lugar para tus herramientas.</p>
@@ -89,16 +75,14 @@
         </div>
     </div>
 
-    
-
-    </div>
-    <div class="no-data-container primary-container" id="no-data-container" style="margin: 20px auto; display: flex; margin">
+    <div class="no-data-container primary-container" id="no-data-container" style="margin: 20px auto; display: flex;">
         <p>
             ¡Aún no tienes bloques creados!
-        </p>
-        
+        </p>  
     </div>
-        <a class="btn-primary" style="display: flex; margin: 0px auto;" href="blocks.html">Empezar</a>
+    <a class="btn-primary" style="display: flex; margin: 0px auto;" href="blocks.html">Empezar</a>
     <div style="margin: 100px 0px;"></div>
+
+    <script src="./includes/loadHeader.js"></script>
 </body>
 </html>
