@@ -45,29 +45,17 @@ function showBlocks(){
         blockDiv.classList.add('blockContainer');
         blockDiv.classList.add('block');
         blockDiv.innerHTML = `
-        <div class="container">
-            <div class="blockOutput">
-                <p class="name">
-                    Bloque ${block.name}
-                </p>
-                <div class="block-text ms-3">                    
-                    <p class="text">
-                        Id:
-                        <span class"id">${block.id}</span>
-                    </p>
-                    <p class="text">
-                        Descripción:
-                        <span class"id">${block.description}</span>
-                    </p>
-                </div>
-                <div style="display: flex;justify-content: end; gap: 5px; ">
-                    <button class="btn btn-primary" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver bloque</button>
+        <li class="block primary-container">
+            <ul class="block-content">
+                <li class="block-name">${block.name}</li>
+                <li class="block-id"><h4>ID: <span class"id">${block.id}</h4></span></li>
+                <li><h4>${block.description}</h4></li>
+            </ul>
+            <div style="display: flex;justify-content: end; gap: 5px; ">
+                <button class="btn btn-primary" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver</button>
                 <button class="btn btn-danger"" onclick="deleteBlock('${block.id}')">Eliminar</button>
-                </div>
-                
             </div>
-            
-        </div>`;
+        </article>`;
         
         blockContainer.appendChild(blockDiv);
     }

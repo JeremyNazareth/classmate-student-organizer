@@ -10,44 +10,35 @@
     <script src="assets/js/blockClass.js" defer></script> 
 </head>
 <body>
-    <div id="header"></div>
+    <div class="header-container" id="header"></div>
+    <main>
+        <section class="blocks-creator">
+            <h3 style="margin-bottom: 10px;">
+                Crear un bloque
+            </h3>
+            <form class="primary-container">
+                <label for="labelName" class="form-label"><h4>Nombre del bloque</h4></label>
+                <input type="text" class="form-input" id="labelName" required>
+                <label for="labelDescription" class="form-label"><h4>Descripción del bloque</h4></label>
+                <input type="text" class="form-input"  id="labelDescription" required>
+                <div style="width: 100%; display: flex; justify-content: end; margin-top: 10px;">
+                    <button class="btn btn-primary btn-create-block" onclick="createblock()"><h4>Crear bloque</h4></button>
+                </div>
+                
+            </form>
 
-    <h1 class="title">
-        Crear bloques
-    </h1>
-    
-    <div class="blockContainer">
-        <div class="creator-container">
-            <div class="card">
-                <form>
-                    <div class="mb-3">
-                        <label for="labelName" class="form-label">Nombre del bloque</label>
-                        <input type="text" class="form-control" id="labelName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="labelDescription" class="form-label">Descripción del bloque</label>
-                        <input type="text" class="form-control"  id="labelDescription" required>
-                    </div>
-                    <button class="btn btn-primary" onclick="createblock()">Crear bloque</button>
+        </section>
+
+        <h3 style="margin: 10px 0px;">
+            Tus bloques:
+        </h3>
+        <ul class= blocks-list id="blocksContainer">
             
-                </form>
-            </div>
-        </div>
-        
-    </div>
+        </ul>
 
-    <h1 class="title" style="margin-bottom: 35px;">
-        Tus bloques:
-    </h1>
-    <div class="container">
-        <div class= blocksContainer id="blocksContainer">
-        
-        </div>
-    </div>
+        <div style="margin-bottom: 200px;"></div>
+    </main>
     
-    <div style="margin-bottom: 200px;">
-
-    </div>
 
     <script src="./includes/loadHeader.js"></script>
 </body>
