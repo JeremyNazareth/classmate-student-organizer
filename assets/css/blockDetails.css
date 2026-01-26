@@ -1,35 +1,24 @@
-.main-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
 
+.selected-block-data{
+    margin-bottom: 30px;
+}
 .creator-containers{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 200px;
+    justify-content: space-between;
     width: 100%;
 }
 
 .creator-container{
-    justify-content: center;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-top: 30px;
-    padding: 15px 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+   width: 300px;
 }
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
-
 
 .function-container{
     justify-content: center;
@@ -51,11 +40,18 @@
 }
 
 .grades-container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(15,15fr);
-    gap: 10px; 
-    padding: 12px;
+    display: flex;
+    gap: 15px;
+}
+
+.grades-container div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.grades-container input{
+    width: 10px;
 }
 
 .grade {
@@ -101,10 +97,6 @@
     grid-template-columns: repeat(15,15fr);
     gap: 10px; 
     padding: 12px;
-}
-
-.selectedBlock-data {
-    text-align: center;
 }
 
 @media (max-width: 1250px) {

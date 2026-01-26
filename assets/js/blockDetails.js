@@ -1,26 +1,19 @@
 let selectedBlock;
 document.addEventListener("DOMContentLoaded", function() {
-    
     const selectedBlockData = JSON.parse(sessionStorage.getItem('selectedBlock'));    
     //Variables for data from Block selected
     selectedBlock = new Block (selectedBlockData.id,selectedBlockData.name,selectedBlockData.description,selectedBlockData.grades,selectedBlockData.tasks, selectedBlockData.notes)    
     let nameBlock = document.getElementById('nameSelectedBlock');
     let descriptionBlock = document.getElementById('descriptionSelectedBlock');    
     //To print the data of the JSON Block
-    nameBlock.innerHTML = `
-    <h1>Bloque: ${selectedBlock.name}</h1>
-    `;
-    descriptionBlock.innerHTML = `
-    <h1>Descripción: ${selectedBlock.description}</h1>
-    `;
+    nameBlock.innerHTML = `${selectedBlock.name}`;
+    descriptionBlock.innerHTML = `${selectedBlock.description}`;
     showGrades();
     showActivities();
     showNotes();
     updateTask();
 
 });
-
-    
 
 function addingGrade(){
     

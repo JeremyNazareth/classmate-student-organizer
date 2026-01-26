@@ -19,53 +19,48 @@
 </head>
 <body>
     <div class="header-container" id="header"></div>
-    
-    <div class="selectedBlock-data">
-        <div id="nameSelectedBlock"></div>
-        <div id="descriptionSelectedBlock"></div>
-        <h1 class="title" style="font-weight: bold;">Detalles del bloque:</h1>
-    </div>
+    <main>
+        <div class="selected-block-data">
+            <h3 id="nameSelectedBlock"></h3>
+            <div id="descriptionSelectedBlock"></div>
+        </div>
     
     
 
     <!--Components creators-->
-    
 
-    <div class="main-container">
         <div class="creator-containers">
-            <div class="creator-container">
-                <div class="form-group">
-                    <div class="context-container">
-                                <!--Grades creator-->
-                        <h5>Agregar calificacion</h5>
+            <form class="creator-container primary-container">
+                <h3>Agregar calificacion</h3>
+                <h4>Nombre de la Nota</h4>
+                <input type="text" class="form-input" style="width: 100%; box-sizing: border-box;" id="gradeName" required>
+                <div class="grades-container" style="margin: 5px 0px;">
+                    <div>
+                        <h4>Nota</h4>
+                        <input type="text" class="form-input" style="width: 25px;" id="grade" required pattern="^[0-9]+(\.[0-9]+)?$" title="Ingrese un número válido con hasta 2 decimales">
                     </div>
-                    <form>
-                        <div class="mb-3">
-                            <label for="gradeName" class="form-label">Nombre de la Nota</label>
-                            <input type="text" class="form-control" id="gradeName" placeholder="Ingrese el nombre de la nota" required>
+                    <div>
+                        <h4>Ponderación</h4>
+                        <div style="flex-direction: row; align-items: center;">
+                            <input type="number" class="form-input" style="width: 25px;"  id="ponderation" required min="0" max="100"> <p>%</p>
                         </div>
-                        <div class="mb-3">
-                            <label for="grade" class="form-label">Nota</label>
-                            <input type="text" class="form-control" id="grade" placeholder="Ingrese la nota" required pattern="^[0-9]+(\.[0-9]+)?$" title="Ingrese un número válido con hasta 2 decimales">
-                        </div>
-                        <div class="mb-3">
-                            <label for="ponderation" class="form-label">Ponderación (%)</label>
-                            <input type="number" class="form-control" id="ponderation" placeholder="Ingrese la ponderación de la nota" required min="0" max="100">
-                        </div>
-                        <button class="btn btn-primary" type="button" style="margin-left: 10px;" onclick="addingGrade()"><i class="fas fa-plus"></i> Agregar nota</button>
-                    </form>
+                    </div>
                 </div>
                 
-            </div>
+                <div style="width: 100%; text-align: center; margin-top: 20px; margin-bottom: 5px;">
+                    <button class="btn btn-primary" type="button" onclick="addingGrade()"> Agregar nota</button>
+                </div>
+                
+            </form>
     
             <div class="creator-container">
                 <div class="form-group">
-                    <div class="context-container">
+                    <div class="context-container primary-container">
                             <!--Activities creator-->
                         <h5>Agregar actividad</h5>
                     </div>
                     <form>
-                        <div class="mb-3">
+                        <div class="">
                             <label for="taskName" class="form-label">Nombre de la tarea</label>
                             <input type="text" class="form-control" id="taskName" placeholder="Ingrese el nombre de la materia" required>
                         </div>
@@ -80,117 +75,115 @@
                         <button class="btn btn-primary" type="button" style="margin-left: 10px;" onclick="addingActivity()"><i class="fas fa-plus"></i> Agregar tarea</button>
                     </form>
                 </div>
-             
-            </div>
-        </div>
-    </div>
-    
-   <!--Notes creator-->
-    
-   <div class="container" style="margin-bottom: 50px;">
-        <button class="btn btn-primary btn-add" onclick="openEditor()" style="width: 145px;">
-            <i class="material-icons">add</i>
-            Agregar Apunte
-        </button>
-   </div>
-    
-
-    <!--Grades-->
-
-    <div class="container" style="flex-direction: column;">
-        <table class="grades-table modern-table">
-            <thead>
-                <tr>
-                  <th>Evaluación</th>
-                  <th>Nota</th>
-                  <th>Ponderación</th>
-                  <th>&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody id="grades-table-body">
-            </tbody>
-        </table>
-        <h4 id="gpa" style="color: white; margin-top: 20px;"></h4>    
-    </div>
-
-    <!--Activities-->
-
-    <div class="container" style="flex-direction: column; margin-top: 50px;">
-        <table class="activities-table modern-table">
-            <thead>
-                <tr>
-                  <th>Actividad</th>
-                  <th>Fecha de inicio</th>
-                  <th>Fecha de termino</th>
-                  <th>Días restantes</th>
-                  <th style="text-align: center;"><i class="material-icons">delete</i></th>
-                </tr>
-            </thead>
-            <tbody id="activities-table-body">
-            </tbody>
-        </table>
-    </div>
-
-    <!--Notes-->
-
-    <div class="container" style="flex-direction: column; margin-top: 50px;">
-        <table class="activities-table modern-table">
-            <thead>
-                <tr>
-                  <th>Apuntes</th>
-                  <th>&nbsp;</th>
-                  <th>&nbsp;</th>
-                  <th>&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody id="notes-table-body">
-            </tbody>
-        </table>
-    </div>
-    <div class="footer" style="margin-top: 200px;">
-
-    </div>
-    
-    <!--Modal panels for activities-->
-
-        <!--Main modal-->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Titulo</span>
-                </div>
-                <input id="title" type="text" class="form-control" placeholder="Ingresa un titulo" aria-label="Username" aria-describedby="bold">
-              </div>
-            <div id="editor-container">
-                <div id="editor" class="editor">
-                </div>
-            </div>
-            <div style="display: flex; justify-content: end; margin-top: 15px;">
-                <button class="btn btn-danger" onclick="closeEditor()">Cerrar</button>
-                <button class="btn btn-success createBtn" onclick="createNote()" style="margin-left: 5px;" id="createBtn">Guardar</button>
-                <button class="btn btn-success saveBtn" style="margin-left: 5px;" id="saveBtn">Editar</button>
-            </div>
-        </div>
-    </div>
-
-        <!--Editor modal-->
-    <div class="modalNote" id="modalNote">
-        <div class="modal-content-note">
-            <div class="card">
-                <div class="card-header" style="text-align: center;" id="showTitle">
-                    
-                </div>
-                <div class="card-body note-content" id="note-content">
-                    
-                </div>
-                
-                <button class="btn btn-danger" style="justify-content: end;" onclick="closeNoteModal()">Cerrar</button>
             </div>
         </div>
         
-    </div>
+        <!--Notes creator-->
+            
+        <div class="container" style="margin-bottom: 50px;">
+                <button class="btn btn-primary btn-add" onclick="openEditor()" style="width: 145px;">
+                    <i class="material-icons">add</i>
+                    Agregar Apunte
+                </button>
+        </div>
+        
 
+        <!--Grades-->
+
+        <div class="container" style="flex-direction: column;">
+            <table class="grades-table modern-table">
+                <thead>
+                    <tr>
+                    <th>Evaluación</th>
+                    <th>Nota</th>
+                    <th>Ponderación</th>
+                    <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody id="grades-table-body">
+                </tbody>
+            </table>
+            <h4 id="gpa" style="color: white; margin-top: 20px;"></h4>    
+        </div>
+
+        <!--Activities-->
+
+        <div class="container" style="flex-direction: column; margin-top: 50px;">
+            <table class="activities-table modern-table">
+                <thead>
+                    <tr>
+                    <th>Actividad</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha de termino</th>
+                    <th>Días restantes</th>
+                    <th style="text-align: center;"><i class="material-icons">delete</i></th>
+                    </tr>
+                </thead>
+                <tbody id="activities-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <!--Notes-->
+
+        <div class="container" style="flex-direction: column; margin-top: 50px;">
+            <table class="activities-table modern-table">
+                <thead>
+                    <tr>
+                    <th>Apuntes</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody id="notes-table-body">
+                </tbody>
+            </table>
+        </div>
+        <div class="footer" style="margin-top: 200px;">
+
+        </div>
+        
+        <!--Modal panels for activities-->
+
+            <!--Main modal-->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Titulo</span>
+                    </div>
+                    <input id="title" type="text" class="form-control" placeholder="Ingresa un titulo" aria-label="Username" aria-describedby="bold">
+                </div>
+                <div id="editor-container">
+                    <div id="editor" class="editor">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: end; margin-top: 15px;">
+                    <button class="btn btn-danger" onclick="closeEditor()">Cerrar</button>
+                    <button class="btn btn-success createBtn" onclick="createNote()" style="margin-left: 5px;" id="createBtn">Guardar</button>
+                    <button class="btn btn-success saveBtn" style="margin-left: 5px;" id="saveBtn">Editar</button>
+                </div>
+            </div>
+        </div>
+
+            <!--Editor modal-->
+        <div class="modalNote" id="modalNote">
+            <div class="modal-content-note">
+                <div class="card">
+                    <div class="card-header" style="text-align: center;" id="showTitle">
+                        
+                    </div>
+                    <div class="card-body note-content" id="note-content">
+                        
+                    </div>
+                    
+                    <button class="btn btn-danger" style="justify-content: end;" onclick="closeNoteModal()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
     <script src="/includes/loadHeader.js"></script>
 </body>
 </html>
