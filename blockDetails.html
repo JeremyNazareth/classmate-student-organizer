@@ -35,55 +35,43 @@
                 <h4>Nombre de la Nota</h4>
                 <input type="text" class="form-input" style="width: 100%; box-sizing: border-box;" id="gradeName" required>
                 <div class="grades-container" style="margin: 5px 0px;">
-                    <div>
+                    <div class="grades-value-container">
                         <h4>Nota</h4>
-                        <input type="text" class="form-input" style="width: 25px;" id="grade" required pattern="^[0-9]+(\.[0-9]+)?$" title="Ingrese un número válido con hasta 2 decimales">
+                        <input type="text" class="form-input" style="width: 40px;" id="grade" required pattern="^[0-9]+(\.[0-9]+)?$" title="Ingrese un número válido con hasta 2 decimales">
                     </div>
-                    <div>
-                        <h4>Ponderación</h4>
-                        <div style="flex-direction: row; align-items: center;">
-                            <input type="number" class="form-input" style="width: 25px;"  id="ponderation" required min="0" max="100"> <p>%</p>
+                    <div class="grades-value-container">
+                        <h4>Ponderación (%)</h4>
+                        <div style="display: flex; flex-direction: row; align-items: center;">
+                            <input type="number" class="form-input" style="width: 40px;"  id="ponderation" required min="0" max="100"> <p style="font-size: 0.9rem; margin: 0;"></p>
                         </div>
                     </div>
                 </div>
                 
-                <div style="width: 100%; text-align: center; margin-top: 20px; margin-bottom: 5px;">
+                <div style="width: 100%; text-align: center; margin-top: 10px; margin-bottom: 5px;">
                     <button class="btn btn-primary" type="button" onclick="addingGrade()"> Agregar nota</button>
                 </div>
                 
             </form>
     
             <div class="creator-container">
-                <div class="form-group">
-                    <div class="context-container primary-container">
-                            <!--Activities creator-->
-                        <h5>Agregar actividad</h5>
-                    </div>
-                    <form>
-                        <div class="">
-                            <label for="taskName" class="form-label">Nombre de la tarea</label>
-                            <input type="text" class="form-control" id="taskName" placeholder="Ingrese el nombre de la materia" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="startTask" class="form-label">Fecha de inicio</label>
-                            <input type="date" class="form-control" id="startTask">
-                        </div>
-                        <div class="mb-3">
-                            <label for="endTask" class="form-label">Fecha de limite</label>
-                            <input type="date" class="form-control" id="endTask">
-                        </div>
-                        <button class="btn btn-primary" type="button" style="margin-left: 10px;" onclick="addingActivity()"><i class="fas fa-plus"></i> Agregar tarea</button>
-                    </form>
-                </div>
+                <form class="primary-container">
+                    <h5>Agregar actividad</h5>
+                    <h4>Nombre de la tarea</h4>
+                    <input type="text" class="form-input" style="width: 100%;" id="taskName" required>
+                    <h4>Fecha de inicio</h4>
+                    <input type="date" class="form-input" id="startTask">
+                    <h4>Fecha limite</h4>
+                    <input type="date" class="form-input" id="endTask">
+                    <button class="btn btn-primary inner-btn" type="button" style="margin: 0.8rem auto;" onclick="addingActivity()"><i class="fas fa-plus"></i> Agregar tarea</button>
+                </form>
             </div>
         </div>
         
         <!--Notes creator-->
             
-        <div class="container" style="margin-bottom: 50px;">
-                <button class="btn btn-primary btn-add" onclick="openEditor()" style="width: 145px;">
-                    <i class="material-icons">add</i>
-                    Agregar Apunte
+        <div style="margin-bottom: 50px;">
+                <button class="btn btn-primary" onclick="openEditor()">
+                    Crear apunte 📃
                 </button>
         </div>
         
