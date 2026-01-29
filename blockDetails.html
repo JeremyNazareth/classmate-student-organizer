@@ -21,11 +21,9 @@
     <div class="header-container" id="header"></div>
     <main>
         <div class="selected-block-data">
-            <h3 id="nameSelectedBlock"></h3>
+            <h3 style="color: blueviolet;" id="nameSelectedBlock"></h3>
             <div id="descriptionSelectedBlock"></div>
         </div>
-    
-    
 
     <!--Components creators-->
 
@@ -70,64 +68,55 @@
         <!--Notes creator-->
             
         <div style="margin-bottom: 50px;">
-                <button class="btn btn-primary" onclick="openEditor()">
-                    Crear apunte 📃
-                </button>
+            <button class="btn btn-primary" onclick="openEditor()">
+                Crear apunte 📋
+            </button>
         </div>
-        
 
         <!--Grades-->
 
-        <div class="container" style="flex-direction: column;">
-            <table class="grades-table modern-table">
-                <thead>
-                    <tr>
+        
+        <table>
+            <thead>
+                <tr>
                     <th>Evaluación</th>
                     <th>Nota</th>
                     <th>Ponderación</th>
                     <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody id="grades-table-body">
-                </tbody>
-            </table>
-            <h4 id="gpa" style="color: white; margin-top: 20px;"></h4>    
-        </div>
-
+                </tr>
+            </thead>
+            <tbody id="grades-table-body">
+            </tbody>
+        </table>
+        <h4 class="gpa" id="gpa"></h4>
         <!--Activities-->
 
-        <div class="container" style="flex-direction: column; margin-top: 50px;">
-            <table class="activities-table modern-table">
-                <thead>
-                    <tr>
-                    <th>Actividad</th>
-                    <th>Fecha de inicio</th>
-                    <th>Fecha de termino</th>
-                    <th>Días restantes</th>
-                    <th style="text-align: center;"><i class="material-icons">delete</i></th>
-                    </tr>
-                </thead>
-                <tbody id="activities-table-body">
-                </tbody>
-            </table>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                <th>Actividad</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de termino</th>
+                <th>Días restantes</th>
+                <th style="text-align: center;">🗑️</th>
+                </tr>
+            </thead>
+            <tbody id="activities-table-body">
+            </tbody>
+        </table>
 
         <!--Notes-->
 
-        <div class="container" style="flex-direction: column; margin-top: 50px;">
-            <table class="activities-table modern-table">
-                <thead>
-                    <tr>
-                    <th>Apuntes</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody id="notes-table-body">
-                </tbody>
-            </table>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                <th>Apuntes</th>
+                
+                </tr>
+            </thead>
+            <tbody id="notes-table-body">
+            </tbody>
+        </table>
         <div class="footer" style="margin-top: 200px;">
 
         </div>

@@ -50,7 +50,7 @@ function showGrades(){
                     <td>${grade.name}</td>
                     <td>${grade.grade}</td>
                     <td>${grade.ponderation}%</td>
-                    <td><button class="btn btn-danger btn-delete" onclick = "removingGrade(${index})"> <i class="material-icons">delete</i></button></td>
+                    <td><button class="btn btn-danger btn-delete" onclick = "removingGrade(${index})"> Remover</button></td>
                 </tr>
                 
             `;
@@ -62,7 +62,9 @@ function showGrades(){
         });
         if (ponderationSum === 100) {
             gpa.textContent = `Tu promedio es: ${productsSum}`;
+            gpa.style.display = `block`
         } else{
+            gpa.style.display = `block`
             gpa.textContent = `Las ponderaciones deben sumar hasta el 100% para tener un promedio.`;
         }
     }
@@ -144,7 +146,7 @@ function showActivities(){
                 <td>${task.startTask}</td>
                 <td>${task.endTask}</td>
                 <td>${statusText}</td>
-                <td class="${statusClass}"><button class="btn btn-danger btn-delete" onclick = "removingActivity(${index})"> <i class="material-icons">delete</i></button></td>
+                <td class="${statusClass}"><button class="btn btn-danger btn-delete" onclick = "removingActivity(${index})"> Remover </button></td>
             </tr>
             `;
             tasksContainer.appendChild(taskDiv);

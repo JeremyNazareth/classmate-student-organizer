@@ -1,4 +1,8 @@
 
+.blocks-creator{
+    width: 60%;
+    margin: auto;
+}
 .blocks-creator form{
     display: flex;
     flex-direction: column;

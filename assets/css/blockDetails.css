@@ -2,22 +2,19 @@
 .selected-block-data{
     margin-bottom: 30px;
 }
+
 .creator-containers{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    padding: 0rem 2rem;
+    margin-bottom: 2rem;
+    gap: 20px;
     width: 100%;
 }
 
 .creator-container{
    width: 300px;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
 }
 
 .function-container{
@@ -62,6 +59,11 @@
     flex-wrap: wrap;
     text-align: center;
     align-items: center;    
+}
+
+.gpa{
+    display: none;
+    margin: 5px 0px;
 }
 
 #taskList {
