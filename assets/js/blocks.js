@@ -47,12 +47,12 @@ function showBlocks(){
         blockDiv.innerHTML = `
         <li class="block primary-container">
             <ul class="block-content">
-                <li class="block-name">${block.name}</li>
-                <li class="block-id"><h4>ID: <span class"id">${block.id}</h4></span></li>
-                <li><h4>${block.description}</h4></li>
-            </ul>
-            <div style="display: flex;justify-content: end; gap: 5px; ">
-                <button class="btn btn-primary" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver</button>
+                <li class="block-name"><h4>${block.name}</h4></li>
+                <li class="block-id"><h4>ID:</h4><h5>${block.id}</h5></span></li>
+                <li><h5>${block.description}</h5></li>
+             </ul>
+             <div>
+                <button class="btn btn-primary" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver</button> 
                 <button class="btn btn-danger"" onclick="deleteBlock('${block.id}')">Eliminar</button>
             </div>
         </article>`;

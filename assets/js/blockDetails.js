@@ -1,4 +1,5 @@
 let selectedBlock;
+
 document.addEventListener("DOMContentLoaded", function() {
     const selectedBlockData = JSON.parse(sessionStorage.getItem('selectedBlock'));    
     //Variables for data from Block selected
@@ -34,15 +35,17 @@ function removingGrade(index){
 }
 function showGrades(){
     
-    const gradesTable = document.getElementById('grades-table-body');
+    const gradesTableBody = document.getElementById('grades-table-body');
+    const gradesTable = document.getElementById('grades-table');
     const gpa = document.getElementById('gpa');
-    gradesTable.innerHTML = '';
+    gradesTableBody.innerHTML = '';
     let productsSum = 0;
     let ponderationSum = 0;
     
     if (selectedBlock && selectedBlock.grades.length > 0) {
         selectedBlock.grades.forEach((grade, index) => {
             
+            gradesTable.style.display = `table`;
             const gradeTr = document.createElement('tr');
             gradeTr.innerHTML = ``;
             gradeTr.innerHTML = `
@@ -50,7 +53,7 @@ function showGrades(){
                     <td>${grade.name}</td>
                     <td>${grade.grade}</td>
                     <td>${grade.ponderation}%</td>
-                    <td><button class="btn btn-danger btn-delete" onclick = "removingGrade(${index})"> Remover</button></td>
+                    <td><button class="btn btn-danger btn-delete" onclick = "removingGrade(${index})"> 🗑️ </button></td>
                 </tr>
                 
             `;
@@ -58,7 +61,7 @@ function showGrades(){
             productsSum += grade.grade * (grade.ponderation / 100);
             ponderationSum += grade.ponderation;
             
-            gradesTable.appendChild(gradeTr);
+            gradesTableBody.appendChild(gradeTr);
         });
         if (ponderationSum === 100) {
             gpa.textContent = `Tu promedio es: ${productsSum}`;
@@ -88,6 +91,7 @@ function addingActivity (){
     const taskName = document.getElementById("taskName").value;
     const taskStart = document.getElementById("startTask").value;
     const endTask = document.getElementById("endTask").value;
+
     selectedBlock.addTask(taskName,taskStart,endTask);
     saveBlockToSessionStorage();
     showActivities();
@@ -99,12 +103,15 @@ function removingActivity (index){
     saveBlockToSessionStorage();
     showActivities();
 }
+
 function showActivities(){
-    const tasksContainer = document.getElementById('activities-table-body');
-    tasksContainer.innerHTML = '';
+    const tasksTableBody = document.getElementById('activities-table-body');
+    const tasksTable = document.getElementById('tasks-table');
+    tasksTableBody.innerHTML = '';
     
     if (selectedBlock && selectedBlock.tasks.length > 0){
         selectedBlock.tasks.forEach((task, index) => {
+            tasksTable.style.display = `table`;
             const taskDiv = document.createElement('tr');
             taskDiv.className = 'task';
             
@@ -149,7 +156,7 @@ function showActivities(){
                 <td class="${statusClass}"><button class="btn btn-danger btn-delete" onclick = "removingActivity(${index})"> Remover </button></td>
             </tr>
             `;
-            tasksContainer.appendChild(taskDiv);
+            tasksTableBody.appendChild(taskDiv);
         });
     }
 }

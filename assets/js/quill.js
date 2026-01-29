@@ -46,8 +46,9 @@ function createNote(){
 }
 
 function saveNote(index){
+    
+    console.log(notesTable);
     let titleDiv = document.getElementById('title');
-
     selectedNote = selectedBlock.notes[index];
     console.log(selectedNote);
     selectedNote.title = titleDiv.value;
@@ -63,9 +64,11 @@ function removeNote(index){
 }
 function showNotes(){
     const notesContainer= document.getElementById('notes-table-body');
+    const notesTable = document.getElementById('notes-table');
     notesContainer.innerHTML = '';
     selectedBlock.notes.forEach((note, index) =>{
         const noteDiv = document.createElement('tr');
+        notesTable.style.display = `table`;
         noteDiv.innerHTML=`
             <tr>
                 <td>${note.title}</td>

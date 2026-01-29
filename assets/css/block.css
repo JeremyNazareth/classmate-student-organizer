@@ -3,6 +3,7 @@
     width: 60%;
     margin: auto;
 }
+
 .blocks-creator form{
     display: flex;
     flex-direction: column;
@@ -17,7 +18,8 @@ form .form-container{
 }
 
 .block{
-    max-width: 325px;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -35,8 +37,11 @@ form .form-container{
     display: flex;
     gap: 10px;
 }
+
 .block-content{
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
 }
 
 
