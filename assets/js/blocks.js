@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Muestra los bloques recuperados en la interfaz
         showBlocks();
     }
-
 });
 //this variable is added later to assign an id to a new block.
 let idCount = 0;
@@ -36,30 +35,33 @@ function createblock () {
 function showBlocks(){
 
     const blockContainer = document.getElementById('blocksContainer');
-    
-    blockContainer.innerHTML= '';
-
-    blocks.forEach (block =>
-    {
-        const blockDiv = document.createElement('div')
-        blockDiv.classList.add('blockContainer');
-        blockDiv.classList.add('block');
-        blockDiv.innerHTML = `
-        <li class="block primary-container">
-            <ul class="block-content">
-                <li class="block-name"><h4>${block.name}</h4></li>
-                <li class="block-id"><h4>ID:</h4><h5>${block.id}</h5></span></li>
-                <li><h5>${block.description}</h5></li>
-             </ul>
-             <div>
-                <button class="btn btn-primary" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver</button> 
-                <button class="btn btn-danger"" onclick="deleteBlock('${block.id}')">Eliminar</button>
-            </div>
-        </article>`;
-        
-        blockContainer.appendChild(blockDiv);
-    }
+    if(blockContainer){
+        blockContainer.innerHTML= '';
+        blocks.forEach (block =>
+        {
+            const blockDiv = document.createElement('div')
+            blockDiv.classList.add('blockContainer');
+            blockDiv.classList.add('block');
+            blockDiv.innerHTML = `
+            <li class="block primary-container">
+                <ul class="block-content">
+                    <li class="block-name"><h4>${block.name}</h4></li>
+                    <li class="block-id"><h4>ID:</h4><h5>${block.id}</h5></span></li>
+                    <li><h5>${block.description}</h5></li>
+                    </ul>
+                    <div>
+                    <button class="btn btn-primary" onclick="redirectToDetails('${block.id}')" margin-right: 15px;">Ver</button> 
+                    <button class="btn btn-danger"" onclick="deleteBlock('${block.id}')">Eliminar</button>
+                </div>
+            </article>`;
+            
+            blockContainer.appendChild(blockDiv);
+        }
     );
+    }
+    
+
+    
 }
 
 function deleteBlock(id){
@@ -75,12 +77,6 @@ function deleteBlock(id){
 
 function redirectToDetails(blockId){
     const block = blocks.find(b => b.id === blockId);
-    sessionStorage.setItem("selectedBlock",JSON.stringify(block));
+    sessionStorage.setItem('selectedBlockId', `${blockId}`)
     window.location.href = `blockDetails.html`;
-}
-
-function consoleDebug(){
-    console.log(sessionStorage);
-    console.log(blocks);
-    console.log(sessionStorage.getItem("selectedBlock"));
 }

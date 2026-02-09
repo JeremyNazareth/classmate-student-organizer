@@ -1,10 +1,9 @@
-//Block class is created
 class Block{
     constructor(id, name, description, grades = [], tasks = [], notes = []){
         this.id = id;
         this.name = name;
         this.description = description;
-        this.grades = grades;
+        this.grades = Array.isArray(grades) ? grades : [];
         this.tasks = tasks;
         this.notes = notes;
     }

@@ -1,6 +1,12 @@
 
 .selected-block-data{
     margin-bottom: 30px;
+    padding-bottom: 0.5rem;
+    
+}
+
+.selected-block-data{
+    
 }
 
 .creator-containers{
@@ -77,7 +83,6 @@
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
 }
 
 .task-header {

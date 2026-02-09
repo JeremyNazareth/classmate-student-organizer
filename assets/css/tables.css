@@ -7,7 +7,7 @@ table{
   color: black;
   box-shadow: 
   0px 0px 1px rgba(0, 0, 0, 0.2);
-  margin: 1rem 0px;
+  margin: 1rem auto;
   transition: all 1s;
   border-spacing: 0px 10px;
   border-collapse: separate;

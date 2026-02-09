@@ -29,7 +29,8 @@
 
         <div class="creator-containers">
             <form class="creator-container primary-container">
-                <h3>Agregar calificacion</h3>
+                <h3>Agregar calificación</h3>
+
                 <h4>Nombre de la Nota</h4>
                 <input type="text" class="form-input" style="width: 100%; box-sizing: border-box;" id="gradeName" required>
                 <div class="grades-container" style="margin: 5px 0px;">
@@ -46,28 +47,28 @@
                 </div>
                 
                 <div style="width: 100%; text-align: center; margin-top: 10px; margin-bottom: 5px;">
-                    <button class="btn btn-primary" type="button" onclick="addingGrade()"> Agregar nota</button>
+                    <button class="btn btn-primary"onclick="addingGrade()"> Agregar nota</button>
                 </div>
                 
             </form>
     
             <div class="creator-container">
                 <form class="primary-container">
-                    <h5>Agregar actividad</h5>
+                    <h3>Agregar actividad</h3>
                     <h4>Nombre de la tarea</h4>
                     <input type="text" class="form-input" style="width: 100%;" id="taskName" required>
                     <h4>Fecha de inicio</h4>
                     <input type="date" class="form-input" id="startTask">
                     <h4>Fecha limite</h4>
                     <input type="date" class="form-input" id="endTask">
-                    <button class="btn btn-primary inner-btn" type="button" style="margin: 0.8rem auto;" onclick="addingActivity()"><i class="fas fa-plus"></i> Agregar tarea</button>
+                    <button class="btn btn-primary inner-btn" style="margin: 0.8rem auto;" onclick="addingActivity()"><i class="fas fa-plus"></i> Agregar tarea</button>
                 </form>
             </div>
         </div>
         
         <!--Notes creator-->
             
-        <div style="margin-bottom: 50px;">
+        <div style="text-align: center;">
             <button class="btn btn-primary" onclick="openEditor()">
                 Crear apunte 📋
             </button>

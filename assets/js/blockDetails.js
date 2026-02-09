@@ -1,31 +1,40 @@
-let selectedBlock;
-
 document.addEventListener("DOMContentLoaded", function() {
-    const selectedBlockData = JSON.parse(sessionStorage.getItem('selectedBlock'));    
+    
+    const blockId = sessionStorage.getItem('selectedBlockId');
+    console.log(blockId)
+    const savedBlocks = JSON.parse(sessionStorage.getItem('blocks'));
+    const selectedBlockData = savedBlocks[blockId]; 
+    
     //Variables for data from Block selected
     selectedBlock = new Block (selectedBlockData.id,selectedBlockData.name,selectedBlockData.description,selectedBlockData.grades,selectedBlockData.tasks, selectedBlockData.notes)    
+    //console.log(selectedBlock, selectedBlockData);
     let nameBlock = document.getElementById('nameSelectedBlock');
     let descriptionBlock = document.getElementById('descriptionSelectedBlock');    
     //To print the data of the JSON Block
     nameBlock.innerHTML = `${selectedBlock.name}`;
     descriptionBlock.innerHTML = `${selectedBlock.description}`;
+    updateTask();
     showGrades();
     showActivities();
-    showNotes();
-    updateTask();
-
+    showNotes();    
 });
 
+function handleSubtmit(event){
+    console.log()
+    event.preventDefault();
+    return false;
+}
+
 function addingGrade(){
-    
     const gradeName = document.getElementById('gradeName').value;
     const grade = document.getElementById('grade').value;
     const ponderation = document.getElementById('ponderation').value;
-    selectedBlock.addGrade(gradeName,grade,ponderation);
+    if (gradeName && grade && ponderation){
+        selectedBlock.addGrade(gradeName,grade,ponderation);
+        saveBlockToSessionStorage();
+        showGrades();
+    }
     
-    saveBlockToSessionStorage();
-    showGrades();
-    updateTask();
 }
 
 function removingGrade(index){    
@@ -33,6 +42,7 @@ function removingGrade(index){
     showGrades();
     saveBlockToSessionStorage();
 }
+
 function showGrades(){
     
     const gradesTableBody = document.getElementById('grades-table-body');
@@ -76,12 +86,13 @@ function showGrades(){
 function saveBlockToSessionStorage() {
 
     if (selectedBlock) {
+        console.log(selectedBlock)
         const block = blocks.find(b => b.id === selectedBlock.id)
         block.grades = selectedBlock.grades
         block.tasks = selectedBlock.tasks
         block.notes = selectedBlock.notes
         sessionStorage.setItem('blocks', JSON.stringify(blocks));
-        console.log(block);
+        console.log(blocks);
     } else {
         console.error('selectedBlock no está definido.');
     }
@@ -125,35 +136,32 @@ function showActivities(){
             let statusClass = '';
             let taskColor = '';
 
-            
             if (daysLeft > 5) {
-                statusText = 'Tienes tiempo';
+                statusText = `Quedan ${daysLeft} días`;
                 statusClass = 'status-green';
-                taskColor = 'background-color: #d4edda;'; 
+                taskColor = '#d4edda;'; 
             } else if (daysLeft > 2) {
                 statusText = `Quedan ${daysLeft} días`;
                 statusClass = 'status-orange';
-                taskColor = 'background-color: #fff3cd;';
+                taskColor = '#fff3cd;';
             } else if (daysLeft < 3 && daysLeft > 0) {
                 statusText = `Quedan ${daysLeft} días`;
                 statusClass = 'status-orange';
-                taskColor = 'background-color: #fff3cd;';
+                taskColor = '#fff3cd;';
             } else {
                 
-                statusText = '¡Vencido!';
+                statusText = 'Vencido';
                 statusClass = 'status-red';
-                taskColor = 'background-color: #f8d7da;'; 
+                taskColor = '#f8d7da;'; 
             }
-
-            taskDiv.style = taskColor;
 
             taskDiv.innerHTML = `
             <tr>
-                <td>${task.name}</td>
+                <td style="max-width:300px; word-break: break-word;">${task.name}</td>
                 <td>${task.startTask}</td>
                 <td>${task.endTask}</td>
-                <td>${statusText}</td>
-                <td class="${statusClass}"><button class="btn btn-danger btn-delete" onclick = "removingActivity(${index})"> Remover </button></td>
+                <td style="background-color:${taskColor}; border-radius: 15px;">${statusText}</td>
+                <td><button class="btn btn-danger btn-delete" onclick = "removingActivity(${index})"> Remover </button></td>
             </tr>
             `;
             tasksTableBody.appendChild(taskDiv);
@@ -169,7 +177,6 @@ function updateTask() {
         const endDateInput = dateInputs[1]; 
         const statusSpan = task.querySelector('.status');
         const currentDate = new Date(); 
-        
         
         if (startDateInput && endDateInput || selectedBlock.tasks.length > 0) {
             
@@ -200,7 +207,6 @@ function updateTask() {
             }
         }
     });
-    saveBlockToSessionStorage();
 }
 
 function selectedBlockLog(){
