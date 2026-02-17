@@ -12,7 +12,7 @@ Actualmente en desarrollo - Se están agregando nuevas funcionalidades continuam
 ## Importante
 El sistema de guardado de datos solo funciona como SessionStorage, por ahora el proyecto solo es para muestra de funcionamiento.
 
-##Instalación
+## Instalación
 Solo debes clonar el repositorio:
    1.git clone https://github.com/JeremyNazareth/classmate-student-organizer
    2.Abir index.html en tu navegador
