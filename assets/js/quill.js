@@ -13,7 +13,7 @@ const quill = new Quill('#editor', {
 
 let isEditing = false
 function openEditor(){
-    document.getElementById('modal').style.display = 'block';    
+    const modal = document.getElementById('modal').style.display = 'flex';   
     let createBtn = document.getElementById('createBtn');
     let saveBtn = document.getElementById('saveBtn');
     let title = document.getElementById('title');
@@ -23,7 +23,6 @@ function openEditor(){
     if (!isEditing){
         saveBtn.style.display = 'none';
         createBtn.style.display = 'block';
-        console.log('what');
     }
 }
 
@@ -47,26 +46,25 @@ function createNote(){
 
 function saveNote(index){
     
-    console.log(notesTable);
     let titleDiv = document.getElementById('title');
     selectedNote = selectedBlock.notes[index];
-    console.log(selectedNote);
     selectedNote.title = titleDiv.value;
     selectedNote.content = quill.getContents();
-    console.log(selectedBlock.notes);
     showNotes();
     closeEditor();
-    
 }
+
 function removeNote(index){
     selectedBlock.notes.splice(index,1);
     showNotes();
 }
+
 function showNotes(){
     const notesContainer= document.getElementById('notes-table-body');
     const notesTable = document.getElementById('notes-table');
     notesContainer.innerHTML = '';
-    selectedBlock.notes.forEach((note, index) =>{
+    if(selectedBlock.notes.length > 0){
+        selectedBlock.notes.forEach((note, index) =>{
         const noteDiv = document.createElement('tr');
         notesTable.style.display = `table`;
         noteDiv.innerHTML=`
@@ -74,27 +72,24 @@ function showNotes(){
                 <td>${note.title}</td>
                 <td>
                     <button class="btn btn-primary" onclick="editNote(${index})">
-                        <span class="material-icons">
-                            edit_note
-                        </span>
+                        Editar
                     </button>
                 </td>
                 <td>
                     <button class="btn btn-primary" onclick="showNote(${index})">
-                        <span class="material-icons">
-                            visibility
-                        </span>
+                        Ver apunte
                     </button></td>
                 <td>
                     <button class="btn btn-danger" onclick="removeNote(${index})">
-                        <span class="material-icons">
-                            delete
-                        </span>
+                       Remover
                     </button></td>                
             </tr>
         `
         notesContainer.appendChild(noteDiv);
     });
+    } else{
+        notesTable.style.display = 'none'
+    }
     
 }
 
@@ -104,7 +99,7 @@ function showNote(index){
     let titleDiv = document.getElementById('showTitle');
     titleDiv.innerHTML = '';
     showDiv.innerHTML = '';
-    showDiv.className = 'note-content';
+    
     const selectedNote = selectedBlock.notes[index];
     const quill = new Quill(document.createElement("div"));
     quill.setContents(selectedNote.content);
@@ -120,7 +115,7 @@ function closeNoteModal(){
 
 function editNote(index){
     isEditing = true;
-    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modal').style.display = 'flex';
     let titleDiv = document.getElementById('title');
     let createBtn = document.getElementById('createBtn');
     let saveBtn = document.getElementById('saveBtn');
@@ -136,7 +131,6 @@ function editNote(index){
     if (isEditing){
         saveBtn.style.display = 'block';
         createBtn.style.display = 'none';
-        console.log('what');
     }
 }
 

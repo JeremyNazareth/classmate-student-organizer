@@ -17,71 +17,72 @@
         <p class="subtitle">Tu lugar para tus herramientas.</p>
     </section>
     
+    <main>
+        <div class="data-container" id="data-container">
+            <div class="container" style="flex-direction: column;">
+                <table class="blocks-table modern-table">
+                    <thead>
+                        <tr>
+                            <th>Bloque</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="blocks-table-body">
+                    </tbody>
+                </table>
+            </div>
 
-    <div class="data-container" id="data-container">
-        <div class="container" style="flex-direction: column; margin-top: 50px;">
-            <table class="blocks-table modern-table">
-                <thead>
-                    <tr>
-                      <th>Bloque</th>
-                      <th>Descripción</th>
-                    </tr>
-                </thead>
-                <tbody id="blocks-table-body">
-                </tbody>
-            </table>
+            <div class="container" style="flex-direction: column; margin-top: 50px;" id="activities-container">
+                <table class="activities-table modern-table">
+                    <thead>
+                        <tr>
+                            <th>Actividad</th>
+                            <th>Fecha de inicio</th>
+                            <th>Fecha de termino</th>
+                            <th>Días restantes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activities-table-body">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="container" style="flex-direction: column;" id="grades-container">
+                <table class="grades-table modern-table">
+                    <thead>
+                        <tr>
+                            <th>Bloque</th>
+                            <th>Evaluación</th>
+                            <th>Nota</th>
+                            <th>Ponderación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="grades-table-body">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container" style="flex-direction: column;" id="notes-container">
+                <table class="notes-table modern-table">
+                    <thead>
+                        <tr>
+                        <th>Apunte</th>
+                        </tr>
+                    </thead>
+                    <tbody id="notes-table-body">
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <div class="container" style="flex-direction: column; margin-top: 50px;" id="activities-container">
-            <table class="activities-table modern-table">
-                <thead>
-                    <tr>
-                      <th>Actividad</th>
-                      <th>Fecha de inicio</th>
-                      <th>Fecha de termino</th>
-                      <th>Días restantes</th>
-                    </tr>
-                </thead>
-                <tbody id="activities-table-body">
-                </tbody>
-            </table>
+        <div class="no-data-container primary-container" id="no-data-container" style="margin: 20px auto; display: flex;">
+            <p>
+                ¡Aún no tienes bloques creados!
+            </p>  
         </div>
-        
-        <div class="container" style="flex-direction: column; margin-top: 50px;" id="grades-container">
-            <table class="grades-table modern-table">
-                <thead>
-                    <tr>
-                      <th>Bloque</th>
-                      <th>Evaluación</th>
-                      <th>Nota</th>
-                      <th>Ponderación</th>
-                    </tr>
-                </thead>
-                <tbody id="grades-table-body">
-                </tbody>
-            </table>
-        </div>
-
-        <div class="container" style="flex-direction: column; margin-top: 50px;" id="notes-container">
-            <table class="notes-table modern-table">
-                <thead>
-                    <tr>
-                      <th>Apunte</th>
-                    </tr>
-                </thead>
-                <tbody id="notes-table-body">
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="no-data-container primary-container" id="no-data-container" style="margin: 20px auto; display: flex;">
-        <p>
-            ¡Aún no tienes bloques creados!
-        </p>  
-    </div>
-    <a class="btn btn-primary" style="display: flex; margin: 0px auto;" href="blocks.html">Empezar</a>
-    <div style="margin: 100px 0px;"></div>
+        <a class="btn btn-primary" style="display: flex; margin: 0px auto;" href="blocks.html">Ver bloques</a>
+    </main>
+    
 
     <script src="./includes/loadHeader.js"></script>
 </body>

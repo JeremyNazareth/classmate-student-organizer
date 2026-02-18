@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     const blockId = sessionStorage.getItem('selectedBlockId');
-    console.log(blockId)
     const savedBlocks = JSON.parse(sessionStorage.getItem('blocks'));
     const selectedBlockData = savedBlocks[blockId]; 
     
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function handleSubtmit(event){
-    console.log()
     event.preventDefault();
     return false;
 }
@@ -34,7 +32,6 @@ function addingGrade(){
         saveBlockToSessionStorage();
         showGrades();
     }
-    
 }
 
 function removingGrade(index){    
@@ -78,21 +75,23 @@ function showGrades(){
             gpa.style.display = `block`
         } else{
             gpa.style.display = `block`
+            gpa.style.textAlign = 'center'
             gpa.textContent = `Las ponderaciones deben sumar hasta el 100% para tener un promedio.`;
         }
+    } else{
+        gradesTable.style.display = `none`;
+        gpa.style.display = `none`;
     }
 }
 
 function saveBlockToSessionStorage() {
 
     if (selectedBlock) {
-        console.log(selectedBlock)
         const block = blocks.find(b => b.id === selectedBlock.id)
         block.grades = selectedBlock.grades
         block.tasks = selectedBlock.tasks
         block.notes = selectedBlock.notes
         sessionStorage.setItem('blocks', JSON.stringify(blocks));
-        console.log(blocks);
     } else {
         console.error('selectedBlock no está definido.');
     }
@@ -106,7 +105,6 @@ function addingActivity (){
     selectedBlock.addTask(taskName,taskStart,endTask);
     saveBlockToSessionStorage();
     showActivities();
-    console.log(selectedBlock.tasks)
 }
 
 function removingActivity (index){
@@ -166,6 +164,8 @@ function showActivities(){
             `;
             tasksTableBody.appendChild(taskDiv);
         });
+    } else{
+        tasksTable.style.display = `none`;
     }
 }
 
@@ -208,7 +208,3 @@ function updateTask() {
         }
     });
 }
-
-function selectedBlockLog(){
-    console.log(selectedBlock.notes);
-};

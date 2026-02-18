@@ -36,7 +36,7 @@
                 <div class="grades-container" style="margin: 5px 0px;">
                     <div class="grades-value-container">
                         <h4>Nota</h4>
-                        <input type="text" class="form-input" style="width: 40px;" id="grade" required pattern="^[0-9]+(\.[0-9]+)?$" title="Ingrese un número válido con hasta 2 decimales">
+                        <input type="number" class="form-input" style="width: 40px;" id="grade" required pattern="^[0-9]+(\.[0-9]+)?$" title="Ingrese un número válido con hasta 2 decimales">
                     </div>
                     <div class="grades-value-container">
                         <h4>Ponderación (%)</h4>
@@ -121,14 +121,11 @@
         
         <!--Modal panels for activities-->
 
-            <!--Main modal-->
+        <!--Main modal-->
         <div class="modal" id="modal">
             <div class="modal-content">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Titulo</span>
-                    </div>
-                    <input id="title" type="text" class="form-control" placeholder="Ingresa un titulo" aria-label="Username" aria-describedby="bold">
+                <div class="input-group">
+                    <input id="title" type="text" class="form-input" style="margin: 10px 0px; width: 300px;" placeholder="Ingresa un titulo" aria-label="Username" aria-describedby="bold">
                 </div>
                 <div id="editor-container">
                     <div id="editor" class="editor">
@@ -136,24 +133,22 @@
                 </div>
                 <div style="display: flex; justify-content: end; margin-top: 15px;">
                     <button class="btn btn-danger" onclick="closeEditor()">Cerrar</button>
-                    <button class="btn btn-success createBtn" onclick="createNote()" style="margin-left: 5px;" id="createBtn">Guardar</button>
-                    <button class="btn btn-success saveBtn" style="margin-left: 5px;" id="saveBtn">Editar</button>
+                    <button class="btn btn-primary" onclick="createNote()" style="margin-left: 5px;" id="createBtn">Guardar</button>
+                    <button class="btn btn-primary saveBtn" style="margin-left: 5px;" id="saveBtn">Editar</button>
                 </div>
             </div>
         </div>
 
-            <!--Editor modal-->
+        <!--Editor modal-->
         <div class="modalNote" id="modalNote">
             <div class="modal-content-note">
-                <div class="card">
-                    <div class="card-header" style="text-align: center;" id="showTitle">
-                        
-                    </div>
-                    <div class="card-body note-content" id="note-content">
-                        
+                <div>
+                    <div class="note-title-display" id="showTitle"></div>
+                    <div class="note-content-display" id="note-content"></div>
+                    <div class="note-buttons-display">
+                        <button class="btn btn-danger" style="justify-content: end;" onclick="closeNoteModal()">Cerrar</button>
                     </div>
                     
-                    <button class="btn btn-danger" style="justify-content: end;" onclick="closeNoteModal()">Cerrar</button>
                 </div>
             </div>
         </div>
