@@ -41,7 +41,6 @@ function showBlocks(){
         {
             const blockDiv = document.createElement('div')
             blockDiv.classList.add('blockContainer');
-            blockDiv.classList.add('block');
             blockDiv.innerHTML = `
             <li class="block primary-container">
                 <ul class="block-content">

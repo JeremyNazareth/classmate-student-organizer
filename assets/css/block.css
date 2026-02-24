@@ -21,6 +21,7 @@ form .form-container{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    gap: 2rem;
 }
 
 .block ul li{
@@ -59,7 +60,28 @@ input:-webkit-autofill:active{
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+@media (max-width:600px){
+    .blocks-creator{
+        width: 100%;
+        margin: 0;
+    }
+
+    .block{
+        padding: 2rem;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .block-content{
+        justify-content: space-between;
+    }
+
+    .block div{
+        text-align: center;
+    }
 }
 
 @media (max-width:1400px){

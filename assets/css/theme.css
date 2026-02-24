@@ -13,7 +13,6 @@ html{
     
 }
 
-
 a {
     text-decoration: none;
     color: inherit;
@@ -43,13 +42,9 @@ body {
 }
 
 main{
-    padding: 2rem 2rem;
+    padding: 0rem 2rem;
 }
 
-.header-container{
-    height: 60px;
-    margin-bottom: 20px;
-}
 
 .header{
     color: blueviolet;
@@ -61,6 +56,7 @@ main{
     max-width: 840px;   
     padding: 0.1rem 2rem;
     border-radius: 30px;
+    margin-bottom: 2rem;
 }
 
 .header-logo{
@@ -230,6 +226,13 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 @media (max-width:600px){
+    main{
+        padding: 0;
+    }
+    .header{
+        padding-bottom: 1rem;
+
+    }
     .header nav {
         flex-direction: column;      
     }

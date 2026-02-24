@@ -24,3 +24,10 @@ table td {
   padding: 0px 0.5rem;
   text-align: center;
 }
+
+@media (max-width:600px){
+  table{
+    
+  }
+
+}
